@@ -4,7 +4,6 @@ import {
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
-import * as THREE from "three";
 
 import { Physics } from "@react-three/cannon";
 import gsap from "gsap";

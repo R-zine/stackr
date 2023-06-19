@@ -1,13 +1,12 @@
-import * as THREE from "three";
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
-import { Text, Shadow } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { useEffect } from "react";
 
 const TextBlock = ({ step }) => {
   const welcome = useRef(null);
   useEffect(() => {
-     if (welcome) {
+    if (welcome) {
       if (step === 1) {
         setTimeout(() => {
           gsap.from(welcome.current.position, {

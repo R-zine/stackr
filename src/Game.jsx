@@ -4,7 +4,6 @@ import {
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
-import * as THREE from "three";
 import { Physics } from "@react-three/cannon";
 import gsap from "gsap";
 
@@ -102,7 +101,8 @@ const Game = ({ isOver, setIsOver, isMuted }) => {
         clearTimeout(boxTime);
 
         if (
-          !currentBox || currentBox?.current?.position?.x > prevPosition + 3 ||
+          !currentBox ||
+          currentBox?.current?.position?.x > prevPosition + 3 ||
           currentBox?.current?.position?.x < prevPosition - 3
         ) {
           !isMuted && setTimeout(() => thud(falling), 300);

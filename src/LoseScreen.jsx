@@ -1,4 +1,3 @@
-import React from "react";
 import gsap from "gsap";
 import { useEffect } from "react";
 
@@ -8,8 +7,7 @@ const LoseScreen = ({ state }) => {
       opacity: 1,
       duration: 0.5,
     });
-  }, [state])
-
+  }, [state]);
 
   return (
     <>
