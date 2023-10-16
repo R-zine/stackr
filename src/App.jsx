@@ -19,10 +19,14 @@ function App() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    window.onkeydown = (e) => {
-      if (e.key === " ") setStep((prev) => prev + 1);
-    };
-  }, []);
+    startTut &&
+      setTimeout(
+        (window.onkeydown = (e) => {
+          if (e.key === " ") setStep((prev) => prev + 1);
+        }),
+        6000
+      );
+  }, [startTut]);
 
   useEffect(() => {
     if (step === 5) {
@@ -38,7 +42,19 @@ function App() {
     <>
       {isOver && <LoseScreen state={isOver} />}
       {startTut && <StartBtn start={startTut} step={step} />}
-      <Suspense fallback={<SquareLoader size={200} color={"hsl(70, 100%, 70%)"} cssOverride={{position: "absolute", top: "40%", left: "calc(50% - 100px)"}} />}>
+      <Suspense
+        fallback={
+          <SquareLoader
+            size={200}
+            color={"hsl(70, 100%, 70%)"}
+            cssOverride={{
+              position: "absolute",
+              top: "40%",
+              left: "calc(50% - 100px)",
+            }}
+          />
+        }
+      >
         <Canvas className="Canvas" shadows>
           {newGame && <TextBlock step={step} endTutorial={setNewGame} />}
           {newGame && <Intro setStart={setStartTut} step={step} />}

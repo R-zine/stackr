@@ -18,13 +18,26 @@ const Intro = ({ setStart, step }) => {
   const target = useRef(null);
 
   useEffect(() => {
-    window.addEventListener(
-      "keydown",
-      (e) => e.key === " " && setIsPaused(false),
-      {
-        once: true,
-      }
+    setTimeout(
+      () =>
+        window.addEventListener(
+          "keydown",
+          (e) => e.key === " " && setIsPaused(false),
+          {
+            once: true,
+          }
+        ),
+      6000
     );
+
+    return () =>
+      window.removeEventListener(
+        "keydown",
+        (e) => e.key === " " && setIsPaused(false),
+        {
+          once: true,
+        }
+      );
   }, []);
 
   const boxes = [
