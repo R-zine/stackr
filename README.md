@@ -3,4 +3,4 @@ A block stacking game made using three.js (react-three-fiber, react-three-drei) 
 
 To install: npm i --legacy-peer-deps
 
-To run: npm start
+To run: npm run dev
