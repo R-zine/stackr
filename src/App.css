@@ -27,17 +27,21 @@
   height: 40px;
   left: 35%;
   top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   z-index: 100;
   border: 2px solid white;
   outline: 10px solid rgba(54, 54, 54, 0.568);
   background-color: rgba(54, 54, 54, 0.568);
 
-  font-size: 2rem;
+  font-size: 2vw;
   opacity: 0;
 }
 
-.start-btn {
+.start-btn,
+.esc-btn {
   position: fixed;
   width: 30%;
   height: 40px;
@@ -49,8 +53,17 @@
   outline: 10px solid rgba(54, 54, 54, 0.568);
   background-color: rgba(54, 54, 54, 0.568);
 
-  font-size: 2rem;
+  font-size: 2vw;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esc-btn {
+  top: 70px;
+  width: 40%;
+  left: 30%;
 }
 
 .UI {

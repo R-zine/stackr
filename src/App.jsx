@@ -17,6 +17,17 @@ function App() {
   const [newGame, setNewGame] = useState(true);
   const [startTut, setStartTut] = useState(false);
   const [step, setStep] = useState(0);
+  const [isSkipped, setisSkipped] = useState(false);
+
+  useEffect(() => {
+    const handleSkip = (e) => {
+      if (e.key === "Escape") setisSkipped(true);
+    };
+
+    window.addEventListener("keydown", (e) => handleSkip(e));
+
+    return () => window.removeEventListener("keydown", (e) => handleSkip(e));
+  }, []);
 
   useEffect(() => {
     startTut &&
@@ -29,14 +40,14 @@ function App() {
   }, [startTut]);
 
   useEffect(() => {
-    if (step === 5) {
+    if (step === 5 || isSkipped) {
       setNewGame(false);
       setStartTut(false);
       window.addEventListener("keydown", (e) => {
         if (e.key === "m") setIsMuted((prev) => !prev);
       });
     }
-  }, [step]);
+  }, [step, isSkipped]);
 
   return (
     <>
